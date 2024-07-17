@@ -36,7 +36,7 @@ sudo mv /opt/sonarqube-10.0.0.68432 /opt/sonarqube
 sudo useradd -d /opt/sonarqube -g sonar sonar
 sudo chown -R sonar:sonar /opt/sonarqube
 sudo cp /opt/sonarqube/conf/sonar.properties /root/sonar.properties_backup
-sudo sh -c 'cat <<EOF> /opt/sonarqube/conf/sonar.properties
+sudo sh -c cat' <<EOF> /opt/sonarqube/conf/sonar.properties
 sonar.jdbc.username=sonar
 sonar.jdbc.password=sonar
 sonar.jdbc.url=jdbc:postgresql://localhost:5432/dbsonarqube
@@ -50,7 +50,7 @@ EOF'
 
 sudo sh -c cat' <<EOF> /bin/linux-x86-64/sonar.sh
 RUN_AS_USER=sonar
-EOF
+EOF'
 
 #setup systemd service for sonarqube
 sudo sh -c cat' <<EOF> /etc/systemd/system/sonar.service
